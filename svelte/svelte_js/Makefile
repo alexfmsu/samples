@@ -1,5 +1,6 @@
 install:
 	@npm install
+	@npm install sveltestrap
 
 run:
 	npm run dev
