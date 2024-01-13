@@ -5,4 +5,4 @@ run:
 	npm run dev
 
 clean:
-	@rm -rf node_modules
+	@rm -rf node_modules package-lock.json
