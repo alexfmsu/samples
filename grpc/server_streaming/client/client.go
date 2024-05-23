@@ -48,6 +48,7 @@ func main() {
 			}
 
 			log.Fatalf("[client] Failed to receive active lots from server: %v", err)
+			continue
 		}
 
 		fmt.Println("[client] (from server) ActiveLots:", lots.Lot)
