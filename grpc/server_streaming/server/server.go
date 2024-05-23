@@ -46,7 +46,7 @@ func (s *server) ActiveLots(req *lotspb.LotsRequest, resp lotspb.LotsService_Act
 func main() {
 	listen, err := net.Listen("tcp", ":"+port)
 	if err != nil {
-		log.Fatalf("Failed to listen port %s: %v", port, err)
+		log.Fatalf("[server] Failed to listen port %s: %v", port, err)
 		return
 	}
 
@@ -55,6 +55,7 @@ func main() {
 	lotspb.RegisterLotsServiceServer(grpcServer, &server{})
 
 	if err := grpcServer.Serve(listen); err != nil {
-		log.Fatalf("Failed to register LotsServiceServer: %v", err)
+		log.Fatalf("[server] Failed to register LotsServiceServer: %v", err)
+		return
 	}
 }
