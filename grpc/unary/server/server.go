@@ -45,5 +45,6 @@ func main() {
 
 	if err := grpcServer.Serve(listen); err != nil {
 		log.Fatalf("[server] Failed to register LoginServiceServer: %v", err)
+		return
 	}
 }
