@@ -34,7 +34,7 @@ func (s *server) Login(ctx context.Context, req *loginpb.LoginRequest) (*loginpb
 func main() {
 	listen, err := net.Listen("tcp", ":"+port)
 	if err != nil {
-		log.Fatalf("Failed to listen port %s: %v", port, err)
+		log.Fatalf("[server] Failed to listen port %s: %v", port, err)
 		return
 	}
 	fmt.Println("[server] Listening port " + port + "...")
@@ -44,6 +44,6 @@ func main() {
 	loginpb.RegisterLoginServiceServer(grpcServer, &server{})
 
 	if err := grpcServer.Serve(listen); err != nil {
-		log.Fatalf("Failed to register LoginServiceServer: %v", err)
+		log.Fatalf("[server] Failed to register LoginServiceServer: %v", err)
 	}
 }
