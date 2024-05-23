@@ -23,7 +23,7 @@ var (
 func main() {
 	conn, err := grpc.NewClient(host+":"+port, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		log.Fatalf("Failed to connect to server: %v", err)
+		log.Fatalf("[client] Failed to connect to server: %v", err)
 		return
 	}
 	defer conn.Close()
@@ -36,7 +36,7 @@ func main() {
 
 	resp, err := client.ActiveLots(context.Background(), &req)
 	if err != nil {
-		log.Fatalf("Failed to get active lots: %v", err)
+		log.Fatalf("[client] Failed to get active lots: %v", err)
 		return
 	}
 
@@ -47,9 +47,9 @@ func main() {
 				break
 			}
 
-			log.Fatalf("Failed to receive active lots from server: %v", err)
+			log.Fatalf("[client] Failed to receive active lots from server: %v", err)
 		}
 
-		fmt.Println("[from server] ActiveLots:", lots.Lot)
+		fmt.Println("[client] (from server) ActiveLots:", lots.Lot)
 	}
 }
