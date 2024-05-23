@@ -55,6 +55,7 @@ func main() {
 		log.Fatalf("[server] Failed to listen port %s: %v", port, err)
 		return
 	}
+	fmt.Println("[server] Listening port " + port + "...")
 
 	grpcServer := grpc.NewServer()
 
