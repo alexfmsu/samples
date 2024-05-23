@@ -37,6 +37,7 @@ func (s *server) PostOrder(stream orderspb.OrdersService_PostOrderServer) error 
 			}
 
 			log.Fatalf("[server] Failed to receive message from client: %v", err)
+			continue
 		}
 
 		if rand.Intn(1000)%2 == 0 {
